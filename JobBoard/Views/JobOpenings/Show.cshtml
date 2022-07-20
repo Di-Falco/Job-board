@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Job Board</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  </head>
+  <body>
+    @using JobBoard.Models
+    <h1>Job Detail </h1>
+
+    <h2>@Model.Title</h2>
+    <p>@Model.Description</p>
+    <p>@Model.Salary</p>
+    <p>@Model.Id</p>
+
+    <a href='/jobopenings/new'>Add another job</a>
+    <a href='/jobopenings'>View all jobs</a>
+    <form action="/jobopenings/delete/@Model.Id" method="post">
+      <button type="submit" name="button">Delete this job</button>
+    </form>
+  </body>
+</html>
