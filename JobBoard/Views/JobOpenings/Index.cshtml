@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Job Board</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<body>
+    @using JobBoard.Models;
+
+    <h1>Open Positions</h1>
+
+    <ul>
+      @foreach (JobOpening jobs in Model)
+      {
+        <li><a href='/jobopenings/@jobs.Id'>@jobs.Title</a>
+            @jobs.Description</li>
+      }
+    </ul>
+    <a href="/jobopenings/new">Add a new item.</a>
+
+    <form action="/jobopenings/deleteall" method="post">
+      <button type="submit" name="button">Clear All Items</button>
+    </form>
+  </body>
+</html>
