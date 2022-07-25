@@ -20,9 +20,10 @@ namespace JobBoard.Controllers
     }
 
     [HttpPost("/jobopenings")]
-    public ActionResult Create(string title, string description, string salary)
+    public ActionResult Create(string title, string description, int salary)
     {
       JobOpening newJob = new JobOpening(title, description, salary);
+      newJob.Save();
       return RedirectToAction("Index");
     }
 
@@ -40,11 +41,11 @@ namespace JobBoard.Controllers
       return View(foundJob);
     }
 
-    [HttpPost("/jobopenings/delete/{id}")]
-    public ActionResult Delete(int id)
-    {
-      JobOpening.Delete(id);
-      return View("Delete");
-    }
+    // [HttpPost("/jobopenings/delete/{id}")]
+    // public ActionResult Delete(int id)
+    // {
+    //   JobOpening.Delete(id);
+    //   return View("Delete");
+    // }
   }
 }
